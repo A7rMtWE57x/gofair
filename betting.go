@@ -176,6 +176,8 @@ func (b *Betting) ListMarketBook(marketIDs []string, displayOrders bool) ([]Mark
 	// build request
 	priceProjection := new(PriceProjection)
 
+	priceProjection.Virtualise = true
+
 	params := struct {
 		MarketIDs           []string         `json:"marketIds,omitempty"`
 		IsMarketDataDelayed bool             `json:"isMarketDataDelayed,omitempty"`
