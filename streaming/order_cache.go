@@ -1,7 +1,7 @@
 package streaming
 
 import (
-	"github.com/belmegatron/gofair/streaming/models"
+	"github.com/A7rMtWE57x/gofair/streaming/models"
 )
 
 type OrderBookCache struct {

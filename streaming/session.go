@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"crypto/tls"
 
-	"github.com/belmegatron/gofair/streaming/models"
+	"github.com/A7rMtWE57x/gofair/streaming/models"
 )
 
 const (

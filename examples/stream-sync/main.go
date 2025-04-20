@@ -4,10 +4,10 @@ import (
 	"flag"
 	"log"
 
-	"github.com/belmegatron/gofair"
-	"github.com/belmegatron/gofair/config"
-	"github.com/belmegatron/gofair/streaming"
-	"github.com/belmegatron/gofair/streaming/models"
+	"github.com/A7rMtWE57x/gofair"
+	"github.com/A7rMtWE57x/gofair/config"
+	"github.com/A7rMtWE57x/gofair/streaming"
+	"github.com/A7rMtWE57x/gofair/streaming/models"
 )
 
 func getRandomMarketID(client *gofair.Client) string {
@@ -40,8 +40,8 @@ func getRandomMarketID(client *gofair.Client) string {
 }
 
 /*
-	Using the config_template.json, create a file called config.json in this directory and enter your Betfair Exchange API credentials.
-	You will also need to supply paths to your SSL cert and private key.
+Using the config_template.json, create a file called config.json in this directory and enter your Betfair Exchange API credentials.
+You will also need to supply paths to your SSL cert and private key.
 */
 func main() {
 

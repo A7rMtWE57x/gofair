@@ -3,7 +3,7 @@ package streaming
 import (
 	"sort"
 
-	"github.com/belmegatron/gofair/streaming/models"
+	"github.com/A7rMtWE57x/gofair/streaming/models"
 )
 
 func newMarketCache(changeMessage *models.MarketChangeMessage, marketChange *models.MarketChange) *MarketCache {

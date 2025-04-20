@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/belmegatron/gofair/config"
-	"github.com/belmegatron/gofair/streaming"
+	"github.com/A7rMtWE57x/gofair/config"
+	"github.com/A7rMtWE57x/gofair/streaming"
 )
 
 type Session struct {

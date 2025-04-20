@@ -3,7 +3,7 @@ package streaming
 import (
 	"crypto/tls"
 
-	"github.com/belmegatron/gofair/streaming/models"
+	"github.com/A7rMtWE57x/gofair/streaming/models"
 )
 
 // MarketSubscriptionLimit is the max number of markets that can be subscribed to via the Betfair Stream API
