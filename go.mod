@@ -1,5 +1,6 @@
 module github.com/A7rMtWE57x/gofair
 
+
 go 1.18
 
 require (
