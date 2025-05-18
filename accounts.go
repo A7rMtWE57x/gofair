@@ -2,7 +2,8 @@ package gofair
 
 // Accounts API Operations
 const (
-	getAccountFunds = "getAccountFunds/"
+	getAccountFunds     = "getAccountFunds/"
+	getAccountStatement = "getAccountStatement/"
 )
 
 // Account object
@@ -22,6 +23,35 @@ func (a *Account) GetAccountFunds() (AccountFundsResponse, error) {
 	}
 
 	var response AccountFundsResponse
+
+	// make request
+	err := a.Client.request(url, params, &response)
+	if err != nil {
+		return response, err
+	}
+	return response, err
+}
+
+func (a *Account) getAccountStatement(filter AccountStatementFilter) (AccountStatementReport, error) {
+	// create url
+	url := createURL(Endpoints.Account, getAccountStatement)
+
+	// build request
+	params := struct {
+		Locale        string
+		FromRecord    int
+		RecordCount   int
+		ItemDateRange TimeRange
+		Wallet        string
+	}{
+		filter.Locale,
+		filter.FromRecord,
+		filter.RecordCount,
+		filter.ItemDateRange,
+		"UK",
+	}
+
+	var response AccountStatementReport
 
 	// make request
 	err := a.Client.request(url, params, &response)
