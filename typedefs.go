@@ -393,28 +393,3 @@ type AccountFundsResponse struct {
 	DiscountRate          float64 `json:"discountRate"`
 	PointsBalance         int     `json:"pointsBalance"`
 }
-
-// StatementItem contains Summary of a cleared order
-type StatementItem struct {
-	RefID         string    `json:"refId"`
-	ItemDate      time.Time `json:"itemDate"`
-	Amount        float64   `json:"amount"`
-	Balance       float64   `json:"balance"`
-	ItemClass     string    `json:"itemClass"`
-	ItemClassData string    `json:"itemClassData"`
-	LegacyData    string    `json:"legacyData"`
-}
-
-// AccountStatementReport contains a container representing search results.
-type AccountStatementReport struct {
-	AccountStatement []StatementItem `json:"statement"`
-	MoreAvailable    bool            `json:"moreAvailable"`
-}
-
-type AccountStatementFilter struct {
-	Locale        string    `json:"locale,omitempty"`
-	FromRecord    int       `json:"fromRecord,omitempty"`
-	RecordCount   int       `json:"recordCount,omitempty"`
-	ItemDateRange TimeRange `json:"itemDateRange,omitempty"`
-	Wallet        string    `json:"wallet,omitempty"`
-}
