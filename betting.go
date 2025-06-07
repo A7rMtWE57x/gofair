@@ -172,33 +172,8 @@ func (b *Betting) ListMarketCatalogue(filter MarketFilter, marketProjection []st
 }
 
 // ListMarketBook returns a list of dynamic data about markets. Dynamic data includes prices, the status of the market, the status of selections, the traded volume, and the status of any orders you have placed in the market.
-func (b *Betting) ListMarketBook(marketIDs []string, displayOrders bool) ([]MarketBook, error) {
+func (b *Betting) ListMarketBook(params ListMarketBookParams) ([]MarketBook, error) {
 	// build request
-	priceProjection := new(PriceProjection)
-
-	priceProjection.Virtualise = true
-
-	params := struct {
-		MarketIDs           []string         `json:"marketIds,omitempty"`
-		IsMarketDataDelayed bool             `json:"isMarketDataDelayed,omitempty"`
-		OrderProjection     OrderProjection  `json:"orderProjection,omitempty"`
-		MatchProjection     MatchProjection  `json:"matchProjection,omitempty"`
-		PriceProjection     *PriceProjection `json:"priceProjection,omitempty"`
-	}{
-		MarketIDs:           marketIDs,
-		IsMarketDataDelayed: false,
-		OrderProjection:     OrderProjectionEnum.Executable,
-		MatchProjection:     MatchProjectionEnum.RolledUpByAvgPrice,
-		PriceProjection:     priceProjection,
-	}
-
-	if !displayOrders {
-		params.OrderProjection = OrderProjectionEnum.All
-		params.MatchProjection = ""
-		priceProjection.PriceData = append(priceProjection.PriceData, PriceDataEnum.ExBestOffers)
-		priceProjection.ExBestOffersOverrides.BestPricesDepth = 3
-	}
-
 	var response []MarketBook
 
 	err := b.bettingRequest(listMarketBook, params, &response)

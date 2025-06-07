@@ -239,7 +239,7 @@ type Order struct {
 	OrderType           string    `json:"orderType"`
 	Status              string    `json:"status"`
 	PersistenceType     string    `json:"persistenceType"`
-	Side                string    `json:"side"`
+	Side                Side      `json:"side"`
 	Price               float32   `json:"price"`
 	Size                float32   `json:"size"`
 	BSPLiability        float32   `json:"bspLiability"`
@@ -417,4 +417,18 @@ type AccountStatementFilter struct {
 	RecordCount   int       `json:"recordCount,omitempty"`
 	ItemDateRange TimeRange `json:"itemDateRange,omitempty"`
 	Wallet        string    `json:"wallet,omitempty"`
+}
+
+type ListMarketBookParams struct {
+	MarketIDs                     []string        `json:"marketIds,omitempty"`
+	PriceProjection               PriceProjection `json:"priceProjection,omitempty"`
+	OrderProjection               OrderProjection `json:"orderProjection,omitempty"`
+	MatchProjection               MatchProjection `json:"matchProjection,omitempty"`
+	IncludeOverallPosition        bool            `json:"includeOverallPosition,omitempty"`
+	PartitionMatchedByStrategyRef bool            `json:"partitionMatchedByStrategyRef,omitempty"`
+	CustomerStrategyRefs          []string        `json:"customerStrategyRefs,omitempty"`
+	CurrencyCode                  string          `json:"currencyCode,omitempty"`
+	Locale                        string          `json:"locale,omitempty"`
+	MatchedSince                  string          `json:"matchedSince,omitempty"`
+	BetIDs                        []string        `json:"betIds,omitempty"`
 }
